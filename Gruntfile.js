@@ -9,7 +9,7 @@ module.exports = function(grunt) {
             },
             production: {
                 options: {
-                    compress: true,
+                    compress: true
                 },
                 files: {
                     'dist/styles/main.min.css': 'src/styles/main.less'
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
                         expand: true,
                         flatten: true,
                         src: ['src/index.html'],
-                        dest: 'dev/'
+                        dest:'dev/'
                     }
                 ]
             },
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
                         expand: true,
                         flatten: true,
                         src: ['prebuild/index.html'],
-                        dest: 'dist/'
+                        dest:'dist/'
                     }
                 ]
             }
@@ -91,16 +91,18 @@ module.exports = function(grunt) {
                 }
             }
         }
+        
     });
 
+    
+
     grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-replace');
-    grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-watch')
+    grunt.loadNpmTasks('grunt-replace')
+    grunt.loadNpmTasks('grunt-contrib-htmlmin')
+    grunt.loadNpmTasks('grunt-contrib-clean')
     grunt.loadNpmTasks('grunt-contrib-uglify')
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('build', ['less:production', 'htmlmin:dist', 'replace:dist', 'clean','uglify']);
+    grunt.registerTask('build', ['less:production','htmlmin:dist','replace:dist','clean','uglify']);
 };
-
